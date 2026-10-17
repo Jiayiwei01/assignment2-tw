@@ -53,9 +53,15 @@ write.csv(
   row.names = FALSE
 )
 
-# Export average body mass by species
-write.csv(
-  average_mass,
-  "average_body_mass.csv",
-  row.names = FALSE
+##============================================================================##
+#4. Visualize Average Body Mass by Species
+png("average_body_mass_plot.png", width = 800, height = 600)
+barplot(
+  average_mass$body_mass_g,
+  names.arg = average_mass$species,
+  main = "Mean Body Mass by Penguin Species",
+  xlab = "Species",
+  ylab = "Average Body Mass (g)",
+  col = "lightblue"
 )
+dev.off()
